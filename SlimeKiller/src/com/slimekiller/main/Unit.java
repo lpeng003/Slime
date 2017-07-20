@@ -34,6 +34,7 @@ public abstract class Unit {
 
     public int getAttack() {return attack;}
     public int getDefence() {return defence;}
+    public int getHealth() {return health;}
 
     public void addHealth(int num) {
             health = (num + health >= maxHealth) ? maxHealth : (health + num);
@@ -48,4 +49,11 @@ public abstract class Unit {
         mana = (mana - num <= 0) ? 0 : (mana - num);
     }
 
+    public boolean isAlive() {return health > 0;}
+
+    public int doAttack(Unit target) {
+        int damageDealt = attack - target.defence;
+        target.subHealth(damageDealt);
+        return damageDealt;
+    }
 }
