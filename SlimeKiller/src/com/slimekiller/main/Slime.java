@@ -18,4 +18,16 @@ public class Slime extends Unit {
 
 
     }
+
+    Slime(int lvl) {
+        setMaxHealth(10);
+        setHealth(10);
+        setMaxMana(0);
+        setMana(0);
+        setAttack(2*lvl);
+        setDefence(2*lvl);
+
+        setLevel(lvl);
+        setExperience(2*lvl);
+    }
 }
