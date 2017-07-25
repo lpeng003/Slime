@@ -16,6 +16,7 @@ public class Hero extends Unit {
         setDefence(0);
         setLevel(1);
         setExperience(0);
+        setLevelUpExperience();
     }
 
 
