@@ -77,7 +77,7 @@ public abstract class Unit {
     public boolean isAlive() {return health > 0;}
 
     public int doAttack(Unit target) {
-        int damageDealt = attack - target.defence;
+        int damageDealt = (attack - target.defence <= 0) ? 0 : attack - target.defence;
         target.subHealth(damageDealt);
         return damageDealt;
     }
