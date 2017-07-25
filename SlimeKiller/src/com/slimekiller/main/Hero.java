@@ -8,6 +8,7 @@ public class Hero extends Unit {
 
 
     public Hero() {
+        setName("generic name");
         setMaxHealth(100);
         setHealth(100);
         setMaxMana(100);

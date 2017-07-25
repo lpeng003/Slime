@@ -4,6 +4,7 @@ package com.slimekiller.main;
  * Created by leonp on 7/13/2017.
  */
 public abstract class Unit {
+    private String  name;
     private int maxHealth;
     private int health;
     private int maxMana;
@@ -36,6 +37,7 @@ public abstract class Unit {
         defence += 1;
     }
 
+    public void setName(String s) {name = s;}
     public void setHealth(int hp) {health = hp;}
     public void setMaxHealth(int maxHp) {maxHealth = maxHp;}
     public void setMana(int mp) {mana = mp;}
@@ -45,6 +47,8 @@ public abstract class Unit {
     public void setLevel(int lvl) {level = lvl;}
     public void setExperience(int exp) {experience = exp;}
     public void setLevelUpExperience() {levelUpExperience = experienceRequired(level);}
+
+    public String getName() {return name;}
 
     public int getAttack() {return attack;}
     public int getDefence() {return defence;}

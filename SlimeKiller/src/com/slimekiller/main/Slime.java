@@ -6,6 +6,7 @@ package com.slimekiller.main;
 public class Slime extends Unit {
 
     Slime() {
+        setName("Slime");
         setMaxHealth(10);
         setHealth(10);
         setMaxMana(0);
@@ -20,6 +21,7 @@ public class Slime extends Unit {
     }
 
     Slime(int lvl) {
+        setName("Slime");
         setMaxHealth(10);
         setHealth(10);
         setMaxMana(0);
