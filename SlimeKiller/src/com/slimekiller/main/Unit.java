@@ -11,10 +11,11 @@ public abstract class Unit {
     private int mana;
     private int level;
     private int experience;
-
     private int attack;
     private int defence;
     private int levelUpExperience;
+
+    private boolean playerControlled;
 
 
 
@@ -47,6 +48,7 @@ public abstract class Unit {
     public void setLevel(int lvl) {level = lvl;}
     public void setExperience(int exp) {experience = exp;}
     public void setLevelUpExperience() {levelUpExperience = experienceRequired(level);}
+    public void setPlayerControlled(boolean playControl) {playerControlled = playControl;}
 
     public String getName() {return name;}
 
@@ -79,6 +81,7 @@ public abstract class Unit {
     }
 
     public boolean isAlive() {return health > 0;}
+    public boolean isPlayerControlled() {return playerControlled;}
 
     public int doAttack(Unit target) {
         int damageDealt = (attack - target.defence <= 0) ? 0 : attack - target.defence;

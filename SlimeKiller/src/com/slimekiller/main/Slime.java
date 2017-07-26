@@ -22,6 +22,7 @@ public class Slime extends Unit {
 
     Slime(int lvl) {
         setName("Slime");
+        setPlayerControlled(false);
         setMaxHealth(10);
         setHealth(10);
         setMaxMana(0);
