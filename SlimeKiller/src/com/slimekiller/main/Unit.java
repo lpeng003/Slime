@@ -75,9 +75,9 @@ public abstract class Unit {
             levelUp();
             experience -= levelUpExperience;
             levelUpExperience = experienceRequired(level);
-            System.out.println("leveled up to level "+level+"!");
+            System.out.println(name+"leveled up to level "+level+"!");
         }
-        System.out.println("you now have "+experience+"/"+levelUpExperience+"xp");
+        System.out.println(name+" now has "+experience+"/"+levelUpExperience+"xp\n");
     }
 
     public boolean isAlive() {return health > 0;}
