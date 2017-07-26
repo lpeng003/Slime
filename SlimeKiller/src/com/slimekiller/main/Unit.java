@@ -4,7 +4,7 @@ package com.slimekiller.main;
  * Created by leonp on 7/13/2017.
  */
 public abstract class Unit {
-    private String  name;
+    private String name;
     private int maxHealth;
     private int health;
     private int maxMana;
