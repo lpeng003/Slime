@@ -30,8 +30,8 @@ public class Main {
                 System.out.println("you died");
                 break;
             }
-            System.out.println("slime killed... "+enemy.getExperience()+"xp earned");
-            player.addExperience(enemy.getExperience());
+            //System.out.println("slime killed... "+enemy.getExperience()+"xp earned");
+            //player.addExperience(enemy.getExperience());
             enemyCount--;
         }
         if(enemyCount == 0){

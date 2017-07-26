@@ -22,8 +22,20 @@ public class BattleGround {
             for(Unit u:fighters){
                 if(u.isAlive()){
                     doTurn(u);
+                    for(Unit dead:deadUnits()){
+                        System.out.println(dead.getName()+" killed... "+dead.getExperience()+"xp earned");
+                        u.addExperience(dead.getExperience());
+                        fighters.remove(dead);
+                    }
                 }
             }
+            /*
+            for(int i=0;i<fighters.size();i++){
+                if(!fighters.get(i).isAlive()){
+                    fighters.remove()
+                }
+            }
+            */
         }
     }
 
@@ -44,6 +56,7 @@ public class BattleGround {
         }
         else {
             System.out.println("run enemy ai for "+u.getName());
+            System.out.println("");
             //u.enemyai();
         }
     }
@@ -75,7 +88,7 @@ public class BattleGround {
         switch (choice){
             case 1:
                 //attack
-                ArrayList<Unit> targets = enemyUnits();
+                ArrayList<Unit> targets = aliveEnemyUnits();
                 showPossibleTargets(targets);
                 int targetNumber = getUserInt(targets.size())-1;  //subtract 1 so player choices can start at 1 instead of 0
                 System.out.println(u.getName()+" does "+u.doAttack(targets.get(targetNumber))+" damage to "+targets.get(targetNumber).getName());
@@ -84,7 +97,6 @@ public class BattleGround {
                 System.out.println("this isn't currently implemented");
                 break;
         }
-        //get an int corresponding to choice from user
 
     }
 
@@ -105,23 +117,33 @@ public class BattleGround {
         System.out.print("choose a target:");
     }
 
-    private ArrayList<Unit> enemyUnits(){
+    private ArrayList<Unit> aliveEnemyUnits(){
         ArrayList<Unit> enemies = new ArrayList<>();
         for(Unit u:fighters){
-            if(!u.isPlayerControlled()){
+            if(!u.isPlayerControlled() && u.isAlive()){
                 enemies.add(u);
             }
         }
         return enemies;
     }
-    private ArrayList<Unit> playerControlledUnits(){
+    private ArrayList<Unit> alivePlayerControlledUnits(){
         ArrayList<Unit> controllable = new ArrayList<>();
         for(Unit u:fighters){
-            if(!u.isPlayerControlled()){
+            if(u.isPlayerControlled() && u.isAlive()){
                 controllable.add(u);
             }
         }
         return controllable;
+    }
+
+    private ArrayList<Unit> deadUnits(){
+        ArrayList<Unit> dead = new ArrayList<>();
+        for(Unit u:fighters){
+            if(!u.isAlive()){
+                dead.add(u);
+            }
+        }
+        return dead;
     }
 
     private int getUserInt(int maxNum){
