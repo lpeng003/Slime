@@ -52,7 +52,7 @@ public abstract class Unit {
     public int getExperience() {return experience;}
 
     public void addHealth(int num) {
-            health = (num + health >= maxHealth) ? maxHealth : (health + num);
+        health = (num + health >= maxHealth) ? maxHealth : (health + num);
     }
     public void subHealth(int num) {
         health = (health - num <= 0) ? 0 : (health - num);
@@ -64,12 +64,12 @@ public abstract class Unit {
         mana = (mana - num <= 0) ? 0 : (mana - num);
     }
     public void addExperience(int exp){
-        experience += exp;
-        while (experience >= levelUpExperience) {
-            levelUp();
-            experience -= levelUpExperience;
-            levelUpExperience = experienceRequired(level);
-            System.out.println("leveled up to level "+level+"!");
+                experience += exp;
+                while (experience >= levelUpExperience) {
+                    levelUp();
+                    experience -= levelUpExperience;
+                    levelUpExperience = experienceRequired(level);
+                    System.out.println("leveled up to level "+level+"!");
         }
         System.out.println("you now have "+experience+"/"+levelUpExperience+"xp");
     }
