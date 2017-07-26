@@ -8,4 +8,9 @@ Slime is a turn-based roguelike slime fighting game
 * turn based battle
 * boss at end
 
+## maybe later
+* web interface
+* host game on github webpage
+* gui interface
+
 

@@ -48,3 +48,9 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 \.idea/
+
+artifacts/
+
+SlimeKiller/src/META-INF/
+
+*.swp

@@ -7,27 +7,19 @@ public class Main {
 
     public static void main(String[] args) {
         Hero player = new Hero();
-        player.setHealth(100);
-        //player.setAttack(50);
+        BattleGround battle = new BattleGround(player);
 
         int enemyCount = 10;
         while (enemyCount > 0) {
-            Slime currentEnemy = new Slime();
-            currentEnemy.setHealth(20);
-            currentEnemy.setExperience(4);
+            Slime enemy = new Slime(1);
+            enemy.setHealth(20);
+            enemy.setExperience(4);
 
-            while (player.isAlive() && currentEnemy.isAlive()) {
-                if (player.isAlive()) {
-                    System.out.println("player health: " + player.getHealth());
-                    System.out.println("slime health: " + currentEnemy.getHealth());
-                    System.out.println("player attacks... "+player.doAttack(currentEnemy)+" damage!\n");
-                }
-                if (currentEnemy.isAlive()) {
-                    System.out.println("player health: " + player.getHealth());
-                    System.out.println("slime health: " + currentEnemy.getHealth());
-                    System.out.println("slime attacks... "+currentEnemy.doAttack(player)+" damage!\n");
-                }
-            }
+            battle.add(enemy);
+
+            battle.doBattle();
+            //battleground.doBattle(enemy,player);
+
             //for user input later
             //Scanner reader = new Scanner(System.in);  // Reading from System.in
             //System.out.println("Enter a number: ");
@@ -38,8 +30,8 @@ public class Main {
                 System.out.println("you died");
                 break;
             }
-            System.out.println("slime killed... "+currentEnemy.getExperience()+"xp earned");
-            player.addExperience(currentEnemy.getExperience());
+            System.out.println("slime killed... "+enemy.getExperience()+"xp earned");
+            player.addExperience(enemy.getExperience());
             enemyCount--;
         }
         if(enemyCount == 0){
